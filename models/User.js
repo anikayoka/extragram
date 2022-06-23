@@ -6,13 +6,16 @@ const UserSchema = new Schema(
     username: {
       type: String,
       required: true,
+      unique: true,
       trim: true
     },
     email: {
       type: String,
       required: true,
-      
-    }
+      unique: true,
+      validate: [validateEmail, 'Please enter a valid email address'],
+      match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Enter valid email']
+    },
     createdBy: {
       type: String,
       required: true,
@@ -23,15 +26,13 @@ const UserSchema = new Schema(
       default: Date.now,
       get: (createdAtVal) => dateFormat(createdAtVal)
     },
-    thoughts: [],
-    user: [
+    thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Thoughts",
+        ref: "Thought",
       },
     ],
-    friends: [],
-    user: [
+    friends: [
       {
         type: Schema.Types.ObjectId,
         ref: "User",
@@ -47,13 +48,13 @@ const UserSchema = new Schema(
   }
 );
 
-// get total count of comments and replies on retrieval
+// get total count of friends on retrieval
 UserSchema.virtual('friendCount').get(function() {
-  return this.friends.reduce((total, friend) => total + friend.users.length + 1, 0);
+  return this.friends.length;
 });
 
-// create the Pizza model using the PizzaSchema
+// create the User model using the UserSchema
 const User = model("User", UserSchema);
 
-// export the Pizza model
+// export the User model
 module.exports = User;
