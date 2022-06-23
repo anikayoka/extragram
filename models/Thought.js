@@ -59,7 +59,7 @@ const ThoughtSchema = new Schema(
   }
 );
 
-// get total count of comments and replies on retrieval
+// get total count of thoughts and reactions on retrieval
 ThoghtSchema.virtual("reactionCount").get(function () {
   return this.reactionss.length;
 });
