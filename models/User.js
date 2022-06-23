@@ -16,16 +16,6 @@ const UserSchema = new Schema(
       validate: [validateEmail, 'Please enter a valid email address'],
       match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Enter valid email']
     },
-    createdBy: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: (createdAtVal) => dateFormat(createdAtVal)
-    },
     thoughts: [
       {
         type: Schema.Types.ObjectId,
