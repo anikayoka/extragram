@@ -1,8 +1,8 @@
 const { Thoughts } = require("../models");
 
-const ThoughtsController = {
+const thoughtsController = {
   // the functions will go in here as methods
-  // get all Thoughtss
+  // get all Thoughts
   getAllThoughts(req, res) {
     Thoughts.find({})
       .populate({
@@ -30,7 +30,7 @@ getThoughtsById({ params }, res) {
     .select('-__v')
     .then(dbThoughtsData => {
       if (!dbThoughtsData) {
-        res.status(404).json({ message: 'No Thoughts found with this id!' });
+        res.status(404).json({ message: 'No thoughts found with this id!' });
         return;
       }
       res.json(dbThoughtsData);
@@ -100,4 +100,4 @@ deleteReactions({ params, body }, res) {
 },
 };
 
-module.exports = ThoughtsController;
+module.exports = thoughtsController;
