@@ -60,10 +60,10 @@ const ThoughtSchema = new Schema(
 );
 
 // get total count of thoughts and reactions on retrieval
-ThoghtSchema.virtual("reactionCount").get(function () {
+ThoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
 
-const Thought = model('Thought', ThoughtSchema);
+const Thoughts = model('Thoughts', ThoughtSchema);
 
-module.exports = Thought;
+module.exports = Thoughts;

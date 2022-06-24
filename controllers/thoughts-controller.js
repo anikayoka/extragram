@@ -61,8 +61,8 @@ updateThoughts({ params, body }, res) {
     .catch(err => res.status(400).json(err));
 },
 
-addFriend({ params, body }, res) {
-  Thoughts.findOneAndUpdate({ _id: params.id }, {$addToSet: {Reactions: req.params.friendId}}, { new: true, runValidators: true })
+addReactions({ params, body }, res) {
+  Thoughts.findOneAndUpdate({ _id: params.id }, {$addToSet: {Reactions: req.params.reactionsId}}, { new: true, runValidators: true })
     .then(dbThoughtsData => {
       if (!dbThoughtsData) {
         res.status(404).json({ message: 'No Thoughts found with this id!' });
@@ -87,8 +87,8 @@ addFriend({ params, body }, res) {
   },
 
 
-deleteFriend({ params, body }, res) {
-  Thoughts.findOneAndUpdate({ _id: params.id }, {$pull: {Reactions: req.params.friendId}}, { new: true, runValidators: true })
+deleteReactions({ params, body }, res) {
+  Thoughts.findOneAndUpdate({ _id: params.id }, {$pull: {Reactions: req.params.reactionsId}}, { new: true, runValidators: true })
     .then(dbThoughtsData => {
       if (!dbThoughtsData) {
         res.status(404).json({ message: 'No Thoughts found with this id!' });
