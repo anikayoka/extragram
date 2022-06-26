@@ -1,6 +1,6 @@
 const { User, Thought } = require("../models");
 
-const UserController = {
+const userController = {
   // get all Users /api/users
 
   getAllUser(req, res) {
@@ -65,7 +65,7 @@ const UserController = {
 
   // /api/users/:userId/friends/:friendId
   addFriend({ params, body }, res) {
-    User.findOneAndUpdate({ _id: params.id }, { $addToSet: { friends: req.params.friendId } }, { new: true, runValidators: true })
+    User.findOneAndUpdate({ _id: params.userId }, { $addToSet: { friends: req.params.friendId } }, { new: true, runValidators: true })
       .then(dbUserData => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No User found with this id!' });
@@ -108,4 +108,4 @@ const UserController = {
   },
 };
 
-module.exports = UserController;
+module.exports = userController;

@@ -48,7 +48,7 @@ const ThoughtSchema = new Schema(
       required: true
     },
     // use ReactionSchema to validate data for a reaction
-    reactions: [ReactionSchema]
+    reaction: [ReactionSchema]
   },
   {
     toJSON: {
@@ -61,9 +61,9 @@ const ThoughtSchema = new Schema(
 
 // get total count of thoughts and reactions on retrieval
 ThoughtSchema.virtual("reactionCount").get(function () {
-  return this.reactions.length;
+  return this.reaction.length;
 });
 
-const Thoughts = model('Thoughts', ThoughtSchema);
+const Thought = model('Thought', ThoughtSchema);
 
-module.exports = Thoughts;
+module.exports = Thought;
