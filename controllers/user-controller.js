@@ -1,8 +1,8 @@
-const { User } = require("../models");
+const { User, Thought } = require("../models");
 
 const UserController = {
-  // the functions will go in here as methods
-  // get all Users
+  // get all Users /api/users
+
   getAllUser(req, res) {
     User.find({})
       .populate({
@@ -20,6 +20,7 @@ const UserController = {
   },
 
 // get one User by id
+
 getUserById({ params }, res) {
   User.findOne({ _id: params.id })
     .populate({
@@ -42,6 +43,7 @@ getUserById({ params }, res) {
 },
 
   // createUser
+
   createUser({ body }, res) {
     User.create(body)
       .then((dbUserData) => res.json(dbUserData))
@@ -61,6 +63,7 @@ updateUser({ params, body }, res) {
     .catch(err => res.status(400).json(err));
 },
 
+// /api/users/:userId/friends/:friendId
 addFriend({ params, body }, res) {
   User.findOneAndUpdate({ _id: params.id }, {$addToSet: {friends: req.params.friendId}}, { new: true, runValidators: true })
     .then(dbUserData => {
@@ -86,7 +89,7 @@ addFriend({ params, body }, res) {
       .catch((err) => res.status(400).json(err));
   },
 
-
+// /api/users/:userId/friends/:friendId
 deleteFriend({ params, body }, res) {
   User.findOneAndUpdate({ _id: params.id }, {$pull: {friends: req.params.friendId}}, { new: true, runValidators: true })
     .then(dbUserData => {
