@@ -4,7 +4,8 @@
     "mongoose": "^6.4.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "name": "extragram",
   "description": "",
