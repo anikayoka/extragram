@@ -64,8 +64,8 @@ const userController = {
   },
 
   // /api/users/:userId/friends/:friendId
-  addFriend({ params, body }, res) {
-    User.findOneAndUpdate({ _id: params.userId }, { $addToSet: { friends: req.params.friendId } }, { new: true, runValidators: true })
+  addFriend({ params }, res) {
+    User.findOneAndUpdate({ _id: params.userId }, { $addToSet: { friends: params.friendId } }, { new: true, runValidators: true })
       .then(dbUserData => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No User found with this id!' });
@@ -82,21 +82,26 @@ const userController = {
       .then((dbUserData) => {
         if (!dbUserData) {
           res.status(404).json({ message: "No User found with this id!" });
+        }
+        return Thought.findOneAndUpdate(
+          { _id: params.thoughtId },
+          { $pull: { user: params.userId } },
+          { new: true }
+        );
+      })
+      .then(dbThoughtData => {
+        if (!dbToughtData) {
+          res.status(404).json({ message: 'No thought found with this id!' });
           return;
         }
-        Thought.deleteMany({ username: dbUserData.username })
-          .then((dbUserData) => {
-            console.log("User info not found!");
-            return res.json(dbUserData);
-          })
-
-          .catch((err) => res.json(err));
-    });
+        res.json(dbThoughtData);
+      })
+      .catch(err => res.json(err));
   },
 
   // /api/users/:userId/friends/:friendId
-  deleteFriend({ params, body }, res) {
-    User.findOneAndUpdate({ _id: params.id }, { $pull: { friends: req.params.friendId } }, { new: true, runValidators: true })
+  deleteFriend({ params }, res) {
+    User.findOneAndUpdate({ _id: params.id }, { $pull: { friends: params.friendId } }, { new: true, runValidators: true })
       .then(dbUserData => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No User found with this id!' });
