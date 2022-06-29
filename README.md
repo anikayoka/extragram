@@ -23,16 +23,20 @@
 
   ## Links
 
-  * [Deployed](https://morning-cove-12800.herokuapp.com/)
   * [Github](https://github.com/anikayoka/mvc-tech-blog)
   
   ## Srcreenshots
   
- ![screencapture-localhost-3001-login-2022-05-30-01_40_56](https://user-images.githubusercontent.com/88905488/170925053-de9b7869-cbe8-48c3-94fa-8f19dffd66f9.png)
+ <img width="1440" alt="Screen Shot 2022-06-28 at 10 09 43 PM" src="https://user-images.githubusercontent.com/88905488/176336418-c0ba8e24-fbb4-40af-a7bc-d3b4ae8f0ce5.png">
 
-![screencapture-localhost-3001-2022-05-30-01_40_40](https://user-images.githubusercontent.com/88905488/170925066-4c22bb0a-f6ae-452e-8c9b-ee278283de81.png)
+<img width="1440" alt="Screen Shot 2022-06-28 at 10 09 53 PM" src="https://user-images.githubusercontent.com/88905488/176336464-d72a1c5d-4607-486c-bca2-e6a65c6ec3a9.png">
 
-![screencapture-localhost-3001-dashboard-2022-05-30-01_40_25](https://user-images.githubusercontent.com/88905488/170925078-27fae67e-50d8-498c-ac6b-e1cc5b1f3c5a.png)
+<img width="1440" alt="Screen Shot 2022-06-28 at 10 09 59 PM" src="https://user-images.githubusercontent.com/88905488/176336521-2b17a09e-e8b4-4fad-b865-d3e353042c49.png">
+
+<img width="1440" alt="Screen Shot 2022-06-28 at 10 10 09 PM" src="https://user-images.githubusercontent.com/88905488/176336575-8c0f8de7-d26b-4777-8db3-bfe71f5f7bc5.png">
+
+<img width="1440" alt="Screen Shot 2022-06-27 at 9 37 30 PM" src="https://user-images.githubusercontent.com/88905488/176336769-97cf1e1f-73db-4f6a-a6d8-048d7f68cd83.png">
+
   
   
   ## License
