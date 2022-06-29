@@ -24,6 +24,11 @@
   ## Links
 
   * [Github](https://github.com/anikayoka/mvc-tech-blog)
+
+  ## Walkthrough Videos
+
+  * [Video 1](https://drive.google.com/file/d/1FhoSx05FShMlT0AP_-C_TocOsfLFcq5g/view?usp=sharing)
+  * [Video 2](https://drive.google.com/file/d/1tfvP5WpXs7pitSPmSxBjJ9WK6J12jBLw/view?usp=sharing)
   
   ## Srcreenshots
   
