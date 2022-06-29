@@ -23,7 +23,7 @@
 
   ## Links
 
-  * [Github](https://github.com/anikayoka/mvc-tech-blog)
+  * [Github](https://github.com/anikayoka/extragram)
 
   ## Walkthrough Videos
 
